@@ -1,3 +1,5 @@
+import common.BaseThread;
+
 /**
  * Class Philosopher.
  * Outlines main subrutines of our virtual philosopher.
@@ -120,3 +122,9 @@ public class Philosopher extends BaseThread
 }
 
 // EOF
+/*
+Implement a max heap in order to create a priority queue between 
+the philosophers (this solves starvation)
+
+Implement race condition between read and write functions
+*/
