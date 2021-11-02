@@ -21,13 +21,15 @@ public class Philosopher extends BaseThread
 	 * - yield
 	 * - The print that they are done eating.
 	 */
-	public void eat()
+	public void eat()		//work in progress
 	{
 		try
 		{
-			// ...
+			System.out.println("Philosopher: " + getId() + " has started eating.");
+			yield();
 			sleep((long)(Math.random() * TIME_TO_WASTE));
-			// ...
+			yield();
+			System.out.println("Philosopher: " + getId() + " has finished eating.");
 		}
 		catch(InterruptedException e)
 		{
