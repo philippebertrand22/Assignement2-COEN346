@@ -12,13 +12,14 @@ public class Monitor
 	 * ------------
 	 */
 
-
 	/**
 	 * Constructor
 	 */
 	public Monitor(int piNumberOfPhilosophers)
 	{
-		// TODO: set appropriate number of chopsticks based on the # of philosophers
+		// TO DO: set appropriate number of chopsticks based on the # of philosophers
+
+		piNumberOfPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
 	}
 
 	/*
