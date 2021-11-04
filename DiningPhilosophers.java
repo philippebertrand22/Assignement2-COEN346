@@ -1,9 +1,12 @@
+import java.util.Scanner;
+
 /**
  * Class DiningPhilosophers
  * The main starter.
  *
  * @author Serguei A. Mokhov, mokhov@cs.concordia.ca
  */
+
 public class DiningPhilosophers
 {
 	/*
@@ -15,7 +18,7 @@ public class DiningPhilosophers
 	/**
 	 * This default may be overridden from the command line
 	 */
-	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 5;
+	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 0;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -42,10 +45,23 @@ public class DiningPhilosophers
 		try
 		{
 			/*
-			 * TODO:
+			 * TO DO:
 			 * Should be settable from the command line
 			 * or the default if no arguments supplied.
 			 */
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("Enter amount of philosophers attending: ");
+			
+			while(true){			//this loop makes sure that there are at least 3 philosophers
+				int DEFAULT_NUMBER_OF_PHILOSOPHERS = sc.nextInt();
+					if (DEFAULT_NUMBER_OF_PHILOSOPHERS < 3){
+						System.out.println("Please make sure there are at least 3 philosophers attending.");
+						continue;
+			}
+			break;
+		}
+
 			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
 
 			// Make the monitor aware of how many philosophers there are

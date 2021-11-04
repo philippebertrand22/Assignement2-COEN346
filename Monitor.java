@@ -11,6 +11,12 @@ public class Monitor
 	 * Data members
 	 * ------------
 	 */
+	boolean left = true; //initial state of a chopstick is true meaning available
+	boolean right = true;
+
+	DiningPhilosophers DP = new DiningPhilosophers();
+	int DNP = DiningPhilosophers.DEFAULT_NUMBER_OF_PHILOSOPHERS;
+	
 
 	/**
 	 * Constructor
@@ -19,7 +25,7 @@ public class Monitor
 	{
 		// TO DO: set appropriate number of chopsticks based on the # of philosophers
 
-		piNumberOfPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
+		piNumberOfPhilosophers = DNP;	//we have the same amount of chopsticks than philosophers
 	}
 
 	/*
