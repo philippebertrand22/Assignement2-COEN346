@@ -25,11 +25,11 @@ public class Philosopher extends BaseThread
 	{
 		try
 		{
-			System.out.println("Philosopher: " + getId() + " has started eating.");
+			System.out.println("Philosopher " + getId() + " has started eating.");
 			yield();
 			sleep((long)(Math.random() * TIME_TO_WASTE));
 			yield();
-			System.out.println("Philosopher: " + getId() + " has finished eating.");
+			System.out.println("Philosopher " + getId() + " has finished eating.");
 		}
 		catch(InterruptedException e)
 		{
@@ -51,11 +51,11 @@ public class Philosopher extends BaseThread
 	{
 		try
 		{
-		System.out.println("Philosopher: " + getId() + " has started thinking.");
+		System.out.println("Philosopher " + getId() + " has started thinking.");
 		yield();
 		sleep((long)(Math.random() * TIME_TO_WASTE));
 		yield();
-		System.out.println("Philosopher: " + getId() + " has finished thinking.");
+		System.out.println("Philosopher " + getId() + " has finished thinking.");
 		}
 		catch(InterruptedException e)
 		{
@@ -76,11 +76,11 @@ public class Philosopher extends BaseThread
 	 */
 	public void talk()
 	{
-		System.out.println("Philosopher: " + getId() + " has started talking.");
+		System.out.println("Philosopher " + getId() + " has started talking.");
 		yield();
 		saySomething();
 		yield();
-		System.out.println("Philosopher: " + getId() + " has finished talking.");
+		System.out.println("Philosopher " + getId() + " has finished talking.");
 	}
 
 	/**
@@ -90,24 +90,28 @@ public class Philosopher extends BaseThread
 	{
 		for(int i = 0; i < DiningPhilosophers.DINING_STEPS; i++)
 		{
-			DiningPhilosophers.soMonitor.pickUp(getTID());
+			try {
+				DiningPhilosophers.soMonitor.pickUp(getTID());
+			} catch (InterruptedException e1) {
+				// TO DO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
 			eat();
 
 			DiningPhilosophers.soMonitor.putDown(getTID());
 
 			think();
-
-			/*
-			 * TO DO:
-			 * A decision is made at random whether this particular
-			 * philosopher is about to say something terribly useful.
-			 */
 			
 			 //this if statement is setup so that there is a 50% chance the philosopher will talk
 			if((long)(Math.random() * TIME_TO_WASTE) < 500) 
 			{
-				DiningPhilosophers.soMonitor.requestTalk();
+				try {
+					DiningPhilosophers.soMonitor.requestTalk();
+				} catch (InterruptedException e) {
+					// TO DO Auto-generated catch block
+					e.printStackTrace();
+				}
 				talk();
 				DiningPhilosophers.soMonitor.endTalk();
 			}
@@ -143,6 +147,7 @@ public class Philosopher extends BaseThread
 /*
 Implement a max heap in order to create a priority queue between 
 the philosophers (this solves starvation)
-
-Implement race condition between read and write functions
 */
+
+
+//Implement race condition between read and write functions

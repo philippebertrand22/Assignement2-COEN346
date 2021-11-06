@@ -18,7 +18,7 @@ public class DiningPhilosophers
 	/**
 	 * This default may be overridden from the command line
 	 */
-	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 0;
+	public static int DEFAULT_NUMBER_OF_PHILOSOPHERS;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -49,19 +49,19 @@ public class DiningPhilosophers
 			 * Should be settable from the command line
 			 * or the default if no arguments supplied.
 			 */
-			Scanner sc = new Scanner(System.in);
+			Scanner scanner = new Scanner(System.in);
 			
 			System.out.println("Enter amount of philosophers attending: ");
 			
 			while(true){			//this loop makes sure that there are at least 3 philosophers
-				int DEFAULT_NUMBER_OF_PHILOSOPHERS = sc.nextInt();
-					if (DEFAULT_NUMBER_OF_PHILOSOPHERS < 3){
+				int test_value = scanner.nextInt();
+					if (test_value < 3){
 						System.out.println("Please make sure there are at least 3 philosophers attending.");
 						continue;
 			}
+			DEFAULT_NUMBER_OF_PHILOSOPHERS = test_value;
 			break;
 		}
-
 			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
 
 			// Make the monitor aware of how many philosophers there are
@@ -71,7 +71,7 @@ public class DiningPhilosophers
 			Philosopher aoPhilosophers[] = new Philosopher[iPhilosophers];
 
 			// Let 'em sit down
-			for(int j = 0; j < iPhilosophers; j++)
+			for(int j = 0; j <= iPhilosophers; j++)
 			{
 				aoPhilosophers[j] = new Philosopher();
 				aoPhilosophers[j].start();
