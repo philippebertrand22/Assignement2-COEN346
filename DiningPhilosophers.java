@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * Class DiningPhilosophers
@@ -18,7 +19,7 @@ public class DiningPhilosophers
 	/**
 	 * This default may be overridden from the command line
 	 */
-	public static int DEFAULT_NUMBER_OF_PHILOSOPHERS;
+	public static int NumberOfPhilosophers;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -54,15 +55,15 @@ public class DiningPhilosophers
 			System.out.println("Enter amount of philosophers attending: ");
 			
 			while(true){			//this loop makes sure that there are at least 3 philosophers
-				int test_value = scanner.nextInt();
-					if (test_value < 3){
+				int InValue = scanner.nextInt();
+					if (InValue < 3){
 						System.out.println("Please make sure there are at least 3 philosophers attending.");
 						continue;
 			}
-			DEFAULT_NUMBER_OF_PHILOSOPHERS = test_value;
+			NumberOfPhilosophers = InValue;
 			break;
 		}
-			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
+			int iPhilosophers = NumberOfPhilosophers;
 
 			// Make the monitor aware of how many philosophers there are
 			soMonitor = new Monitor(iPhilosophers);
@@ -70,18 +71,18 @@ public class DiningPhilosophers
 			// Space for all the philosophers
 			Philosopher aoPhilosophers[] = new Philosopher[iPhilosophers];
 
+			System.out.println
+			(
+				iPhilosophers +
+				" philosopher(s) came in for a dinner."
+			);
+
 			// Let 'em sit down
 			for(int j = 0; j < iPhilosophers; j++)
 			{
 				aoPhilosophers[j] = new Philosopher();
 				aoPhilosophers[j].start();
 			}
-
-			System.out.println
-			(
-				iPhilosophers +
-				" philosopher(s) came in for a dinner."
-			);
 
 			// Main waits for all its children to die...
 			// I mean, philosophers to finish their dinner.

@@ -14,12 +14,13 @@ public class Monitor
 	 * ------------
 	 */
 	DiningPhilosophers DP = new DiningPhilosophers();
-	int DNP = DiningPhilosophers.DEFAULT_NUMBER_OF_PHILOSOPHERS;
 
-	boolean chopsticks[] = new boolean [DNP];	//creating an array of chopsticks
-	public static void fill(boolean[] chopsticks){	//setting the initial value of all chopsticks to true
-		Arrays.fill(chopsticks, true);					//meaning all the chopsticks are available
-	}
+	int NP = DiningPhilosophers.NumberOfPhilosophers;
+
+	//creating an array of chopsticks
+	Boolean[] chopsticks = new Boolean[NP+1];
+
+
 
 	boolean talk = true;
 	/**
@@ -27,9 +28,10 @@ public class Monitor
 	 */
 	public Monitor(int piNumberOfPhilosophers)
 	{
-		// TO DO: set appropriate number of chopsticks based on the # of philosophers
-
-		piNumberOfPhilosophers = DNP;	//we have the same amount of chopsticks than philosophers
+		for(int k = 0;k< NP; k++){		//setting all values of the array to true meaning available
+		chopsticks[k] = true;
+		}
+		
 	}
 
 	/*
@@ -48,10 +50,9 @@ public class Monitor
 	{
 		if (piTID == 0){
 			if(chopsticks[piTID] = true){
-				if(chopsticks[piTID + DNP - 1] = true){
+				if(chopsticks[piTID + NP - 1] = true){
 						chopsticks[piTID] = false;
-						chopsticks[piTID + DNP -1] = false;
-						return;
+						chopsticks[piTID + NP -1] = false;
 				}
 				else{
 					//add to the count of the maxHeap 
@@ -64,11 +65,10 @@ public class Monitor
 			}
 		}
 		else{
-			if (chopsticks[piTID] = true){
-				if (chopsticks[piTID - 1] = true){
+			if (chopsticks[piTID] = true){		//if left chopstick is available check right chopstick
+				if (chopsticks[piTID - 1] = true){	//if both chopsticks available pick them up
 					chopsticks[piTID] = false;
 					chopsticks[piTID - 1] = false;
-					return;
 				}
 				else{
 					//add to the count of the maxHeap
@@ -90,7 +90,7 @@ public class Monitor
 	{
 		if(piTID == 0){
 			chopsticks[piTID] = true;
-			chopsticks[piTID + DNP - 1] = true;
+			chopsticks[piTID + NP - 1] = true;
 			notifyAll();
 		}
 		else{
@@ -110,8 +110,7 @@ public class Monitor
 	{
 		if (talk = true){
 			talk = false;
-			return;
-		}
+			}
 		else{
 			wait(); //add to the count of the maxHeap
 		}
