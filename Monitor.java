@@ -125,6 +125,16 @@ public class Monitor
 		talk = true;
 		notifyAll();
 	}
+
+	public synchronized void pickUpPepperShaker()
+	{
+			int pepperShakers = 2; //total amount of shakers
+	}
+
+	public synchronized void putDownPepperShaker()
+	{
+
+	}
 }
 
 // EOF

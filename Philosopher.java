@@ -141,6 +141,14 @@ public class Philosopher extends BaseThread
 			astrPhrases[(int)(Math.random() * astrPhrases.length)]
 		);
 	}
+	public void pepperShaker() throws InterruptedException
+	{
+		System.out.println("Philosopher "+ getTID() + " has taken a pepper shaker");
+		yield();
+		sleep((long)(Math.random() * TIME_TO_WASTE));
+		yield();
+		System.out.println("Philosopher "+ getTID() + " has put down a pepper shaker");
+	}
 }
 
 // EOF
