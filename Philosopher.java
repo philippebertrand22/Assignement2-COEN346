@@ -25,11 +25,11 @@ public class Philosopher extends BaseThread
 	{
 		try
 		{
-			System.out.println("Philosopher " + getId() + " has started eating.");
+			System.out.println("Philosopher " + getTID() + " has started eating.");
 			yield();
 			sleep((long)(Math.random() * TIME_TO_WASTE));
 			yield();
-			System.out.println("Philosopher " + getId() + " has finished eating.");
+			System.out.println("Philosopher " + getTID() + " has finished eating.");
 		}
 		catch(InterruptedException e)
 		{
@@ -51,11 +51,11 @@ public class Philosopher extends BaseThread
 	{
 		try
 		{
-		System.out.println("Philosopher " + getId() + " has started thinking.");
+		System.out.println("Philosopher " + getTID() + " has started thinking.");
 		yield();
 		sleep((long)(Math.random() * TIME_TO_WASTE));
 		yield();
-		System.out.println("Philosopher " + getId() + " has finished thinking.");
+		System.out.println("Philosopher " + getTID() + " has finished thinking.");
 		}
 		catch(InterruptedException e)
 		{
@@ -76,11 +76,11 @@ public class Philosopher extends BaseThread
 	 */
 	public void talk()
 	{
-		System.out.println("Philosopher " + getId() + " has started talking.");
+		System.out.println("Philosopher " + getTID() + " has started talking.");
 		yield();
 		saySomething();
 		yield();
-		System.out.println("Philosopher " + getId() + " has finished talking.");
+		System.out.println("Philosopher " + getTID() + " has finished talking.");
 	}
 
 	/**
@@ -149,5 +149,3 @@ Implement a max heap in order to create a priority queue between
 the philosophers (this solves starvation)
 */
 
-
-//Implement race condition between read and write functions

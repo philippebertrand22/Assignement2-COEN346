@@ -23,7 +23,7 @@ public class MaxHeap {
        // Returning left children
        private int leftChild(int pos) { return (2 * pos); }
             // Method 3
-       // Returning left children
+       // Returning right children
        private int rightChild(int pos)
        {
            return (2 * pos) + 1;
@@ -78,18 +78,7 @@ public class MaxHeap {
            }
            size++;
        }
-            // Method 8
-       // To display heap
-       public void print()
-       {
-           for (int i = 0; i <= size / 2; i++) {
-                System.out.print(
-                   " PARENT : " + Heap[i]
-                   + " LEFT CHILD : " + Heap[2 * i + 1]
-                   + " RIGHT CHILD :" + Heap[2 * i + 2]);
-               System.out.println();
-           }
-       }
+
             // Method 9
        // Remove an element from max heap
        public int extractMax()
@@ -103,25 +92,13 @@ public class MaxHeap {
        // main dri er method
        public static void main(String[] arg)
        {
-           // Display message for better readability
-           System.out.println("The Max Heap is ");
                 MaxHeap maxHeap = new MaxHeap(15);
                 // Inserting nodes
            // Custom inputs
            maxHeap.insert(5);
-           maxHeap.insert(3);
-           maxHeap.insert(17);
-           maxHeap.insert(10);
-           maxHeap.insert(84);
-           maxHeap.insert(19);
-           maxHeap.insert(6);
-           maxHeap.insert(22);
-           maxHeap.insert(9);
                 // Calling maxHeap() as defined above
-           maxHeap.print();
+
                 // Print and display the maximum value in heap
-           System.out.println("The max val is "
-                           + maxHeap.extractMax());
+           System.out.println("The max val is " + maxHeap.extractMax());
        }
-        
     }

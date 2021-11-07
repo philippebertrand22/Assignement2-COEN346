@@ -16,7 +16,7 @@ public class Monitor
 	DiningPhilosophers DP = new DiningPhilosophers();
 	int DNP = DiningPhilosophers.DEFAULT_NUMBER_OF_PHILOSOPHERS;
 
-	boolean [] chopsticks = new boolean [DNP];	//creating an array of chopsticks
+	boolean chopsticks[] = new boolean [DNP];	//creating an array of chopsticks
 	public static void fill(boolean[] chopsticks){	//setting the initial value of all chopsticks to true
 		Arrays.fill(chopsticks, true);					//meaning all the chopsticks are available
 	}
@@ -75,7 +75,7 @@ public class Monitor
 					wait();
 				}
 			}
-		else{
+			else{
 					//add to the count of the maxHeap
 					wait();
 		}
